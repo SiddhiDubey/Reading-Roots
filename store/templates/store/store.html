@@ -1,0 +1,43 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+
+			<form method="get">
+				{{myFilter.form}}
+
+				
+				<button class="btn btn-primary" type="submit">Search</button>
+			</form>
+		</div>
+	</div>
+</div>
+<br>
+<br>
+	
+
+	<div class="row">
+		{% for product in products %}
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{{product.imageURL}}">
+			<div class="box-element product">
+				<h4><strong>{{product.name}}</strong></h4>
+                <h6 style="display: inline-block;"><strong>{{product.author}}</strong></h6>
+
+				<hr>
+
+				<h6 style="display: inline-block;"><strong>{{product.genre}}</strong></h6>
+
+				<br>
+
+				<a class="btn btn-outline-success" href="#">View</a>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+{% endblock content %}
